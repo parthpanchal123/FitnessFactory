@@ -2,9 +2,12 @@ package com.fitness.demo.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -13,6 +16,8 @@ import javax.persistence.Id;
 @RequiredArgsConstructor
 public class ExerciseCategory {
     @Id
+    @NonNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer category_id;
     private String category_name;
 }
