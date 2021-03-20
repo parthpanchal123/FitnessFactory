@@ -5,4 +5,5 @@ import com.fitness.demo.model.UserProfile;
 public interface UserProfileService {
 
     public UserProfile addUserProfile(UserProfile userProfile);
+    public UserProfile getUserProfile(Integer userId);
 }

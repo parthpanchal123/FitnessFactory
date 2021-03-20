@@ -11,8 +11,21 @@ public class UserProfileServiceImpl implements UserProfileService {
     @Autowired
     private UserProfileRepository userProfileRepository;
 
+    @Autowired
+    private MacroService macroService;
+
     @Override
     public UserProfile addUserProfile(UserProfile userProfile) {
-        return userProfileRepository.save(userProfile);
+
+          userProfileRepository.save(userProfile);
+
+          macroService.addMacro(userProfile);
+
+        return userProfile;
+    }
+
+    @Override
+    public UserProfile getUserProfile(Integer userId) {
+        return userProfileRepository.findByUserId(userId);
     }
 }
